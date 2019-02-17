@@ -1,5 +1,5 @@
-main = () => {
-    var str = "01E3r5";
+main = (word) => {
+    var str = word;
     var res = new Array();
     res = str.split("");
     var text = "";
@@ -16,7 +16,7 @@ main = () => {
   
     if ( totalmatch > 1 ) {
       for ( x = 0; x < res.length; x++ ) {
-        if ("AIUEO".indexOf(res[x]) > 0) {
+        if ("AIUEO".indexOf(res[x]) !== -1) {
           res[x] = res[x].toLowerCase();
         } else if ( res[x] === "r") {
           res[x] = "j";
@@ -29,14 +29,14 @@ main = () => {
       }
     } else if ( totalmatch < 2) {
         for ( x = 0; x < res.length; x++) {
-          if ("AIUEO".indexOf(res[x]) > 0) {
+          if ("AIUEO".indexOf(res[x]) !== -1) {
           res[x] = res[x].toLowerCase();
           } else if (res[x] === "r") {
             res[x] = "r";
           } else if (res[x] === "j") {
             res[x] = "j";
           } else {
-            var char = "bcdfghjklmnpqrstvwxyz";
+            var char = "bcdfghklmnpqrstvwxyz";
             res[x] = char.charAt(Math.floor(Math.random() * char.length));
           }
             text += res[x];
@@ -45,4 +45,4 @@ main = () => {
     console.log(text)
   }
 
-  main();
+  main("01E3r5");
